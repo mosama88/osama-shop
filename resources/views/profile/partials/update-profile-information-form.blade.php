@@ -9,11 +9,11 @@
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}" enctype="multipart/form-data">
+    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
         {{-- Name Input --}}
@@ -89,21 +89,20 @@
         {{-- Birthday Input --}}
         <div>
             <form method="post" action="{{ route('profile.update') }}">
-                <x-input-label for="birthday" :value="__('Birthday')" />
+                <x-input-label for="bd" :value="__('Birthday')" />
                 <input type="date"
                     class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
-                    id="birthday" name="birthday">
+                    id="bd" name="bd">
                 <input type="submit">
             </form>
         </div>
 
         {{-- Image Input --}}
-        <div class="mt-3">
+        {{-- <div class="mt-3">
             <x-input-label for="image" :value="__('Image')" />
-            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" :value="old('image', $user->country)"
-                required autofocus autocomplete="country" />
+            <x-text-input name="image" type="file" class="mt-1 block w-full" />
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
-        </div>
+        </div> --}}
 
         <div class="flex items-center gap-4 mt-3">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

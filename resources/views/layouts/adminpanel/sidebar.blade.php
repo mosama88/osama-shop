@@ -13,8 +13,13 @@
         <div class="sidebar-user">
             <img class="img-60" src="{{ asset('assets') }}/images/dashboard/user3.jpg" alt="#">
             <div>
-                <h6 class="f-14">JOHN</h6>
-                <p>general manager.</p>
+
+                @if(auth()->check())
+                <h6 class="f-14">{{ Auth::user()->name }}</h6>
+            @else
+            <h6 class="f-14">Hello Guest!</h6> 
+            @endif
+                {{-- <p>{{ Auth::user()->title }}</p> --}}
             </div>
         </div>
         <ul class="sidebar-menu">
@@ -294,14 +299,13 @@
             </li>
 
             <li>
-                <a class="sidebar-header" href="support-ticket.html"><i
-                        data-feather="phone"></i><span>Support Ticket</span>
+                <a class="sidebar-header" href="support-ticket.html"><i data-feather="phone"></i><span>Support
+                        Ticket</span>
                 </a>
             </li>
 
             <li>
-                <a class="sidebar-header" href="reports.html"><i
-                        data-feather="bar-chart"></i><span>Reports</span>
+                <a class="sidebar-header" href="reports.html"><i data-feather="bar-chart"></i><span>Reports</span>
                 </a>
             </li>
 
@@ -318,8 +322,7 @@
             </li>
 
             <li>
-                <a class="sidebar-header" href="invoice.html"><i
-                        data-feather="archive"></i><span>Invoice</span></a>
+                <a class="sidebar-header" href="invoice.html"><i data-feather="archive"></i><span>Invoice</span></a>
             </li>
 
             <li>

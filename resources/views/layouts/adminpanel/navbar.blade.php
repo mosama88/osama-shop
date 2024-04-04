@@ -120,54 +120,54 @@
                     <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                         <li>
                             <a href="{{ route('adminpanel.user-profile') }}">
-                                <i data-feather="user"></i>Edit Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i data-feather="mail"></i>Inbox
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i data-feather="lock"></i>Lock Screen
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i data-feather="settings"></i>Settings
-                            </a>
-                        </li>
-                        @if (Route::has('login'))
+                                @if (Route::has('login'))
+                                    @auth
+                                        <i data-feather="user"></i>Edit Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i data-feather="mail"></i>Inbox
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i data-feather="lock"></i>Lock Screen
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i data-feather="settings"></i>Settings
+                                </a>
+                            </li>
                             <nav class="mx-3 flex flex-1">
-                                @auth
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <li>
 
-                                            <a href="javascript:void(0)">
-                                                <a href="route('logout')"
-                                                    onclick="event.preventDefault();
+                                        <a href="javascript:void(0)">
+                                            <a href="route('logout')"
+                                                onclick="event.preventDefault();
                                             this.closest('form').submit();">
 
 
-                                                    <i data-feather="log-out"></i>Logout
-                                                </a>
+                                                <i data-feather="log-out"></i>Logout
                                             </a>
-                                        </li>
-                                    </form>
-                                @else
-                                    <li>
-                                        <div class="mx-3 mt-2 flex flex-1">
-
-                                            <a href="{{ route('login') }}">
-                                                <i data-feather="log-out"></i> Log in
-                                            </a>
-                                        </div>
+                                        </a>
                                     </li>
+                                </form>
+                            @else
+                                <li>
+                                    <div class="mx-3 mt-2 flex flex-1">
 
-                                @endauth
-                        @endif
+                                        <a href="{{ route('login') }}">
+                                            <i data-feather="log-out"></i> Log in
+                                        </a>
+                                    </div>
+                                </li>
+
+                            @endauth
+                            @endif
                     </ul>
 
                 </li>

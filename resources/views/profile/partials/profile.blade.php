@@ -3,10 +3,6 @@
     $user = User::get();
 @endphp
 
-
-
-
-
 @extends('layouts.adminpanel.master')
 @section('title', 'Home | Admin Panel')
 @section('content-adminpanel')
