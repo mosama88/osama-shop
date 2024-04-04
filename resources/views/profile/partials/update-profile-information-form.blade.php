@@ -30,6 +30,8 @@
                 required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
+
+
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
@@ -48,8 +50,14 @@
                     @endif
                 </div>
             @endif
-        </div>
 
+        </div>
+        <div>
+            <x-input-label for="mobile" :value="__('Mobile')" />
+            <x-text-input id="mobile" name="mobile" type="text" class="mt-1 block w-full" :value="old('mobile', $user->mobile)"
+                required autofocus autocomplete="mobile" />
+            <x-input-error class="mt-2" :messages="$errors->get('mobile')" />
+        </div>
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
